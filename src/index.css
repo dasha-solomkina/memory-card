@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+body {
+  background-image: linear-gradient(to bottom, #55853fff, #d8cb5dff);
+}
+
 h1 {
   font-size: 2.5rem;
 }
@@ -34,15 +38,17 @@ h1 {
 .card {
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  box-shadow: 0 0 15px black;
   padding: 16px 10px;
   border-radius: 8px;
   align-items: center;
+  background-color: #d3d7a9ff;
 }
 
 .card:hover {
   cursor: pointer;
-  /* add some style later for game */
+  box-shadow: 0 0 15px #fea02eff;
 }
 
 img {
@@ -61,4 +67,9 @@ img {
 a {
   font-size: 0.8rem;
   text-decoration: none;
+  color: #515f7bff;
+}
+
+a:visited {
+  color: rgb(175, 120, 163);
 }
