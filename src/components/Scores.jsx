@@ -1,11 +1,13 @@
-export default function Scores() {
+/* eslint-disable react/prop-types */
+
+export default function Scores({ currentScore }) {
   return (
     <div className="scores">
       <p>
-        Current Score: <span>0</span>
+        Current Score: <span>{currentScore}</span>
       </p>
       <p>
-        Best Score: <span>10</span>
+        Best Score: <span>{'bestScore'}</span>
       </p>
     </div>
   );
