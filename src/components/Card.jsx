@@ -1,11 +1,8 @@
-export default function Card() {
+export default function Card({ name, img }) {
   return (
     <div className="card">
-      <img
-        src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
-        alt=""
-      />
-      <h3>Name</h3>
+      <img src={img} alt="" />
+      <h3>{name}</h3>
     </div>
   );
 }
