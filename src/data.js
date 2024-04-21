@@ -27,8 +27,6 @@ async function fetchData() {
   }
 }
 
-const fetchedArray = await fetchData();
-
 async function fetchImg(url) {
   try {
     const response = await fetch(url, { mode: 'cors' });
@@ -48,6 +46,7 @@ async function fetchImg(url) {
 
 async function makePokemonArray() {
   let finalArr = [];
+  const fetchedArray = await fetchData();
 
   await Promise.all(
     fetchedArray.map(async (obj) => {
