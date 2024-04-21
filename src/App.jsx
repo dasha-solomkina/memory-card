@@ -9,7 +9,6 @@ export default function App() {
   const [moves, setMoves] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [shuffleArr, setShuffleArr] = useState([]);
 
   // Fisher-Yates Sorting Algorithm
   function shuffleArray(array) {
@@ -21,8 +20,7 @@ export default function App() {
   }
 
   useEffect(() => {
-    const shuffled = shuffleArray(pokemonArray);
-    setShuffleArr(shuffled, ...shuffleArr);
+    shuffleArray(pokemonArray);
   }, [currentScore]);
 
   const updateScore = (e) => {
