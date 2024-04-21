@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { useState, useEffect } from 'react';
 
 class Character {
   constructor(name, img) {
@@ -14,7 +15,7 @@ async function fetchData() {
     const response = await fetch(url, { mode: 'cors' });
 
     if (response.status === 400) {
-      throw new Error('City not found or API request failed');
+      throw new Error('API request failed');
     }
 
     const data = await response.json();
@@ -44,20 +45,27 @@ async function fetchImg(url) {
   }
 }
 
-async function makePokemonArray() {
-  let finalArr = [];
-  const fetchedArray = await fetchData();
+export default function MakePokemonArray() {
+  const [pokemonArray, setPokemonArray] = useState([]);
 
-  await Promise.all(
-    fetchedArray.map(async (obj) => {
-      const img = await fetchImg(obj.url);
-      const newCharacter = new Character(obj.name, img);
-      finalArr.push(newCharacter);
-    })
-  );
-  return finalArr;
+  useEffect(() => {
+    async function fetchDataAndSetPokemonArray() {
+      try {
+        const fetchedArray = await fetchData();
+        const finalArr = await Promise.all(
+          fetchedArray.map(async (obj) => {
+            const img = await fetchImg(obj.url);
+            return new Character(obj.name, img);
+          })
+        );
+        setPokemonArray(finalArr);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchDataAndSetPokemonArray();
+  }, []);
+
+  return pokemonArray;
 }
-
-const pokemonArray = await makePokemonArray();
-
-export default pokemonArray;

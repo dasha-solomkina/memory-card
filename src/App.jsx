@@ -3,10 +3,11 @@ import Header from './components/Header';
 import GridCards from './components/GridCards';
 import Footer from './components/Footer';
 import Scores from './components/Scores';
-import pokemonArray from './data';
 import Restart from './components/Restart';
+import makePokemonArray from './data';
 
 export default function App() {
+  const pokemonArray = makePokemonArray();
   const [moves, setMoves] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
@@ -23,7 +24,7 @@ export default function App() {
 
   useEffect(() => {
     shuffleArray(pokemonArray);
-  }, [currentScore]);
+  }, [currentScore, pokemonArray]);
 
   const updateScore = (e) => {
     // is a winner?
@@ -46,7 +47,6 @@ export default function App() {
     } else if (moves.includes(e)) {
       setCurrentScore(0);
       setMoves([]);
-      console.log('there is this value already! ');
     }
   };
 
