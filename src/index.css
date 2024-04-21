@@ -23,6 +23,7 @@ h1 {
 
 .scores {
   margin-top: 12px;
+  min-width: 200px;
 }
 
 .description {
