@@ -1,6 +1,6 @@
 # Memory Card Game
 
-This project was completed as part of the course: The Odin Project[https://www.theodinproject.com/lessons/node-path-react-new-memory-card].
+This project was completed as part of the course: [The Odin Project](https://www.theodinproject.com/lessons/node-path-react-new-memory-card).
 
 Project Preview: Memory Card Game.
 
