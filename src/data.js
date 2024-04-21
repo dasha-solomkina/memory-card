@@ -4,7 +4,6 @@ class Character {
   constructor(name, img) {
     this.name = name;
     this.img = img;
-    this.chosen = false;
     this.id = uuidv4();
   }
 }

@@ -4,11 +4,13 @@ import GridCards from './components/GridCards';
 import Footer from './components/Footer';
 import Scores from './components/Scores';
 import pokemonArray from './data';
+import Restart from './components/Restart';
 
 export default function App() {
   const [moves, setMoves] = useState([]);
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const popup = document.querySelector('.overlay');
 
   // Fisher-Yates Sorting Algorithm
   function shuffleArray(array) {
@@ -28,7 +30,8 @@ export default function App() {
     if (!moves.includes(e) && moves.length === 11) {
       setCurrentScore(currentScore + 1);
       setBestScore(12);
-      alert('you wooooon');
+      popup.classList.remove('hidden');
+
       // if a card was not chosen before
     } else if (!moves.includes(e)) {
       setCurrentScore(currentScore + 1);
@@ -38,6 +41,7 @@ export default function App() {
       if (currentScore == bestScore) {
         setBestScore(bestScore + 1);
       }
+
       // if a card was chosen before
     } else if (moves.includes(e)) {
       setCurrentScore(0);
@@ -54,6 +58,7 @@ export default function App() {
       </div>
       <GridCards pokemonArray={pokemonArray} updateScore={updateScore} />
       <Footer />
+      <Restart />
     </>
   );
 }
