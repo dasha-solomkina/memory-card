@@ -45,3 +45,6 @@ yarn dev
 ## Live project
 
 You can access the [live version here](https://memory-card-git-main-dasha-solomkinas-projects.vercel.app/).
+</br>
+
+<img src="https://github.com/user-attachments/assets/e5ccb380-29b2-4320-bcfb-390db023cff6" alt="image" width="500"/>
